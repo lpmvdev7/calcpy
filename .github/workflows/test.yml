@@ -1,0 +1,11 @@
+name: test
+
+on:
+  push:
+
+jobs:
+  calc_testing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Test Suma"
+        run: printf "10\n5\n+\n" | python3 main.py | grep -q "15" && echo "PASS" || echo "FAIL"
