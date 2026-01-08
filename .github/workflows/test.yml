@@ -7,5 +7,9 @@ jobs:
   calc_testing:
     runs-on: ubuntu-latest
     steps:
+      - name: "Clonning repo and getting into repo"
+        run: git clone https://github.com/lpmvdev7/calcpy.git
+
       - name: "Test Suma"
+        working-directory: ./calcpy
         run: printf "10\n5\n+\n" | python3 main.py | grep -q "15" && echo "PASS" || echo "FAIL"
