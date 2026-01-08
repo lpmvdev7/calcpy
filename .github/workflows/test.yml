@@ -13,3 +13,16 @@ jobs:
       - name: "Test Suma"
         working-directory: ./calcpy
         run: printf "10\n5\n+\n" | python3 main.py | grep -q "15" && echo "PASS" || echo "FAIL"
+      - name: "Test Resta"
+        working-directory: ./calcpy
+        run: printf "10\n5\n-\n" | python3 main.py | grep -q "5" && echo "PASS" || echo "FAIL"
+
+      - name: "Test Multiplicacion"
+        working-directory: ./calcpy
+        run: printf "10\n5\n*\n" | python3 main.py | grep -q "50" && echo "PASS" || echo "FAIL"
+      - name: "Test Multiplicacion 2"
+        working-directory: ./calcpy
+        run: printf "10\n5\nx\n" | python3 main.py | grep -q "50" && echo "PASS" || echo "FAIL"
+      - name: "Test division"
+        working-directory: ./calcpy
+        run: printf "10\n2\n/\n" | python3 main.py | grep -q "5" && echo "PASS" || echo "FAIL"
