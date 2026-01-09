@@ -1,0 +1,14 @@
+name: issue-welcome
+
+on:
+  issues:
+    types: [opened] #Solo se activa cuando se crea un issue
+
+jobs:
+  issue-welcome:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Comentar en el issue
+        run: |
+         gh issue comment ${{github.event.issue.number}} \
+         --body "Hola ${{github.actor}} gracias por tu reporte"
