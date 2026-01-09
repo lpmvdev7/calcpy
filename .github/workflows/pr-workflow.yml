@@ -11,6 +11,8 @@ jobs:
     pr-comment-workflow:
         runs-on: ubuntu-latest
         steps:
+            - name: Situar en repo
+              uses: actions/checkout@v4
             - name: Obtener Datos de PR
               env:
                 GH_TOKEN: ${{github.token}}
