@@ -1,0 +1,12 @@
+name: label-workflow
+
+on:
+    label:
+        types: [created]
+
+jobs:
+    label-workflow:
+        runs-on: ubuntu-latest
+        steps:
+            - name: alerta de creacion
+              run: echo "Se creo una etiqueta"
