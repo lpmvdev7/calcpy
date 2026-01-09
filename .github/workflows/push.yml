@@ -23,4 +23,4 @@ jobs:
                 GH_TOKEN: ${{github.token}}
 
             - name: "Haciendo push de los cambios"
-              run: git add . && git commit -m "UPDATE README"
+              run: git add . && git commit -m "UPDATE README && git push origin main"
