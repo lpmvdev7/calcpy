@@ -1,0 +1,15 @@
+name: label-workflow
+
+on:
+    label:
+        types: [created]
+
+permissions:
+    contents: read
+
+jobs:
+    label-workflow:
+        runs-on: ubuntu-latest
+        steps:
+            - name: alerta de creacion
+              run: echo "Se creo la etiqueta ${{github.event.label.name}}"
