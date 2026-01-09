@@ -1,0 +1,14 @@
+name: create
+
+on:
+  create:
+jobs:
+  create_action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Imprimir mensaje
+        run: echo "Se ha creado un rama o tag en el repositorio"
+      - name: Tipo de recurso
+        run: echo "Tipo de recurso --> ${{ github.event.ref_type }}"
+      - name: Nombre del recurso
+        run: echo "Nombre del recurso --> ${{github.event.ref}}"
