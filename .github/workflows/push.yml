@@ -18,7 +18,7 @@ jobs:
                git config --global user.name "github-actions[bot]"
 
             - name: "Edit README"
-              run: echo "README editado el $(date) por ${{github.actor}}, el id del commit es ${{github.event.commits.id}}" > README.md
+              run: echo "README editado el $(date) por ${{github.actor}}, el id del commit es ${{github.sha}}" > README.md
               env:
                 GH_TOKEN: ${{github.token}}
 
