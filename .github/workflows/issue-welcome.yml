@@ -12,3 +12,5 @@ jobs:
         run: |
          gh issue comment ${{github.event.issue.number}} \
          --body "Hola ${{github.actor}} gracias por tu reporte"
+        env:
+          GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
