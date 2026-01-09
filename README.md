@@ -1,7 +1,1 @@
-Calculadora hecha en python
-Nueva linea en documentacion
-otra linea
-otra linea otra vez
-otra linea otra vez
-una nueva linea mas
-una nueva linea mas
+README editado el Fri Jan  9 23:45:20 UTC 2026 por lpmvdev7, el id del commit es 
