@@ -12,9 +12,15 @@ jobs:
             - name: "Checkout"
               uses: actions/checkout@v4
             
+            - name: SETUP Git
+              run: | 
+               git config --global user.email "github-actions[bot]@users.noreply.github.com"
+               git config --global user.name "github-actions[bot]"
+
             - name: "Edit README"
               run: echo "README editado el $(date) por ${{github.actor}}" > README.md
               env:
                 GH_TOKEN: ${{github.token}}
+
             - name: "Haciendo push de los cambios"
               run: git add . && git commit -m "UPDATE README"
