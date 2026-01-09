@@ -1,0 +1,14 @@
+name: delete
+
+on:
+    delete:
+
+jobs:
+    delete_action:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Tipo de recurso eliminado
+              run: echo "${{github.event.ref_type}}"
+            
+            - name: Nombre del recurso eliminado
+              run: echo "${{github.event.ref}}"
