@@ -18,9 +18,9 @@ jobs:
                git config --global user.name "github-actions[bot]"
 
             - name: "Edit README"
-              run: echo "README editado el $(date) por ${{github.actor}}" > README.md
+              run: echo "README editado el $(date) por ${{github.actor}}, el id del commit es ${{github.event.commits.id}}" > README.md
               env:
                 GH_TOKEN: ${{github.token}}
 
             - name: "Haciendo push de los cambios"
-              run: git add . && git commit -m "UPDATE README && git push origin main"
+              run: git add . && git commit -m "UPDATE README" && git push origin main
