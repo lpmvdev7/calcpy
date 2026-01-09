@@ -8,6 +8,8 @@ jobs:
   issue-welcome:
     runs-on: ubuntu-latest
     steps:
+      - name: Siturar en el repositorio
+        uses: actions/checkout@v4
       - name: Comentar en el issue
         run: |
          gh issue comment ${{github.event.issue.number}} \
