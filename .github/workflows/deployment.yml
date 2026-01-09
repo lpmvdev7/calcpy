@@ -1,0 +1,13 @@
+name: deployment
+
+on:
+    deployment:
+
+jobs:
+    deployment_action:
+        runs-on: ubuntu-latest
+        steps:
+            - name: "Despligue"
+              run: echo "Desplegando en ${{github.event.deployment.environment}}"
+            - name: "Quien desplego"
+              run: echo "${{github.actor}}"
