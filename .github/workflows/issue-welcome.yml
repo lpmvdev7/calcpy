@@ -5,17 +5,18 @@ on:
     types: [opened] #Solo se activa cuando se crea un issue
 
 permissions:
-  issues: write
+  issues: write #Asignamos permisos de escritura
 
 jobs:
   issue-welcome:
     runs-on: ubuntu-latest
     steps:
-      - name: Siturar en el repositorio
-        uses: actions/checkout@v4
+      - name: Situar en el repositorio
+        uses: actions/checkout@v4 #Usar un action del marketplace
       - name: Comentar en el issue
         run: |
          gh issue comment ${{github.event.issue.number}} \
-         --body "Hola ${{github.actor}} gracias por tu reporte"
+         --body "Hola ${{github.actor}} gracias por tu reporte, estaremos revisando tus peticiones"
         env:
-          GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          GH_TOKEN: ${{secrets.GITHUB_TOKEN}} #Uso de env para gh cli
+
