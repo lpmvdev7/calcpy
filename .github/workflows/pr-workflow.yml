@@ -1,32 +1,17 @@
-name: pr-workflow
+name: pr
 
 on:
-  pull_request:
-    types: [opened]
+    pull_request:
+        types: [opened]
+
+permissions:
+    pull-requests: write
 
 jobs:
-  pr-workflow:
-    runs-on: ubuntu-latest
-    steps:
-      - name: "Situar en el repositorio"
-        uses: actions/checkout@v4
-        with:
-          # Necesitamos fetch-depth: 0 para poder hacer push de vuelta
-          fetch-depth: 0
-
-      - name: "Configurar Git"
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-
-      - name: "Escribir datos del PR"
-        run: |
-          echo "${{ github.event.pull_request.id }} creado por ${{ github.actor }} el $(date)" >> pr-author.txt
-
-      - name: "Sincronizar cambios"
-        run: |
-          git add pr-author.txt
-          git commit -m "Registro de PR #${{ github.event.pull_request.number }}"
-          git push origin HEAD:main
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    pr-comment-workflow:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Obtener Datos de PR
+              env:
+                GH_TOKEN: ${{github.token}}
+              run: gh pr comment ${{github.event.pull_request.number}} --body "Hola ${{github.actor}} tu pr esta en revision 🚀"
