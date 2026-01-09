@@ -16,3 +16,5 @@ jobs:
               run: echo "README editado el $(date) por ${{github.actor}}" > README.md
               env:
                 GH_TOKEN: ${{github.token}}
+            - name: "Haciendo push de los cambios"
+              run: git add . && git commit -m "UPDATE README"
