@@ -1,0 +1,12 @@
+name: release
+
+on:
+    release:
+        types: [published]
+
+jobs:
+    release-job:
+        runs-on: ubuntu-latest
+        steps:
+            - name: new release
+              run: echo "${{github.event.release.tag_name}} version"
