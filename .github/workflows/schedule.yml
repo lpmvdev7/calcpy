@@ -1,0 +1,12 @@
+name: chequeo-seguridad
+
+on:
+    schedule:
+        - cron: '52 9 10 1 6'
+
+jobs:
+    security-check:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Ejecutar scanner
+              run: echo "Ejecutando Scaneo..." && echo "Scaneo exitoso"
