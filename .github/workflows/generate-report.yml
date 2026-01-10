@@ -1,0 +1,19 @@
+name: "Generar Reporte de Calidad"
+
+on:
+  workflow_run:
+    workflows: ["Ejecutar Tests"] # Nombre que declaramos en unit-test.yml
+    types:
+      - completed # Se dispara cuando unit-test.yml termina
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    # IMPORTANTE: Validamos que el anterior haya terminado con ÉXITO
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    
+    steps:
+      - name: Crear Reporte
+        run: |
+          echo "El workflow padre ID: ${{ github.event.workflow_run.id }} terminó con éxito."
+          echo "Generando reporte de resultados..."

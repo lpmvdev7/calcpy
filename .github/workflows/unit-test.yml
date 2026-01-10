@@ -1,0 +1,13 @@
+name: "Ejecutar Tests" # <--- Este nombre es el que usaremos de referencia
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Correr tests unitarios
+        run: echo "Ejecutando tests... Todo OK"
