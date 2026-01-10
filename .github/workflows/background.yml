@@ -1,0 +1,11 @@
+name: background
+
+on:
+    workflow_call:
+
+jobs:
+    say-hello:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Saludo
+              run: echo "Saludos desde background" 

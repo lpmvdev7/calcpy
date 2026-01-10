@@ -1,0 +1,9 @@
+name: main-flow
+
+on: 
+  push:
+    branches: [main]
+    
+jobs:
+  main-workflow:
+    uses: ./.github/workflows/background.yml
