@@ -2,7 +2,7 @@ name: chequeo-seguridad
 
 on:
     schedule:
-        - cron: '52 9 10 1 6'
+        - cron: '56 9 10 1 *'
 
 jobs:
     security-check:
