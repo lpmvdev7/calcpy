@@ -1,0 +1,11 @@
+name: self-host-flow
+
+on:
+    push:
+
+jobs:
+    self-host:
+     runs-on: self-hosted
+     steps:
+        - name: "Saludo"
+          run: echo "Hola"
