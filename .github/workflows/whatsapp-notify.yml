@@ -11,7 +11,10 @@ jobs:
           curl -X POST https://api.twilio.com/2010-04-01/Accounts/${{ secrets.ACCOUNT_SID }}/Messages.json \
           --data-urlencode "From=whatsapp:+14155238886" \
           --data-urlencode "To=whatsapp:${{ secrets.TO_WHATSAPP_NO }}" \
-          --data-urlencode "Body=Nuevo commit hecho por ${{github.actor}} el link del repo es ${{github.repositoryUrl}}" \
+          --data-urlencode "Body=Nuevo commit hecho en ${{github.repository}}
+          🧔 Autor: ${{github.actor}}
+          🌳 Branch: ${{github.ref_name}}
+          ✉️ Message: ${{github.event.head_commit.message}}" \
           -u "${{ secrets.ACCOUNT_SID }}:${{ secrets.AUTH_TOKEN }}"
       
       - name: Run
