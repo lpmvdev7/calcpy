@@ -1,0 +1,17 @@
+name: call
+on: push
+
+jobs:
+    call-twilio:
+        runs-on: ubuntu-latest
+        steps:
+            - name: "Call setup"
+              uses: fabasoad/twilio-voice-call-action@v3
+              with:
+                twilio-account-sid: "${{ secrets.ACCOUNT_SID }}"
+                twilio-auth-token: "${{ secrets.AUTH_TOKEN }}"
+                text: "Hello ${{github.actor}}, you make new changes on ${{github.repository}}"
+                from: '+14155238886'
+                to: '${{secrets.TO_WHATSAPP_NO}}'
+                voice: "alice"
+                twilio-log-level: "debug"
