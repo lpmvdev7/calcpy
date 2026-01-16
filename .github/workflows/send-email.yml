@@ -1,0 +1,19 @@
+name: Send Email
+
+on: [push]
+
+jobs:
+  send-email:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      
+      - name: Send Email via Gmail
+        uses: Raghul-M/gmail-sender-action@v1
+        with:
+          sender_email: ${{ secrets.GMAIL_SENDER }}
+          app_password: ${{ secrets.GMAIL_APP_PASSWORD }}
+          receiver_emails: ${{ secrets.RECIPIENTS }}
+          template_path: "templates/email_template.html"
+          subject: "Notification from GitHub Action"
